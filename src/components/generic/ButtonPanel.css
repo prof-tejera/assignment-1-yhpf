@@ -1,0 +1,85 @@
+.panel {
+    width: 20rem;
+}
+
+.timerDisplay, .buttonPanel {
+    text-align: center;
+    background-color: lightblue;
+}
+
+.timerDisplay {
+    padding-top: 10px;
+}
+
+.buttonPanel {
+    padding-bottom: 10px;
+}
+
+.start {
+    background-color: green;
+    border: darkgreen;
+    border-radius: 15px;
+    border: white;
+    padding: 5px 20px;
+    color: white;
+
+}
+
+.start:hover {
+    background-color: darkgreen;
+    border: green;  
+    cursor: pointer;
+}
+
+.pause-resume {
+    background-color: orange;
+    border: darkorange;
+    border-radius: 15px;
+    padding: 5px 10px;
+    color: white;
+    width: 5rem;
+}
+
+.pause-resume:hover {
+    background-color: darkorange;
+    border: orange;  
+    cursor: pointer;
+}
+
+.fastforward {
+    background-color: darkviolet;
+    border: purple;
+    border-radius: 15px;
+    padding: 5px 20px;
+    color: white;
+}
+
+.fastforward:hover {
+    background-color: purple;
+    border: darkviolet;  
+    cursor: pointer;
+}
+
+.disabled-fastforward {
+    background-color: grey;
+    border: darkgrey;
+    border-radius: 15px;
+    padding: 5px 20px;
+    color: lightgrey;
+}
+
+.reset {
+    background-color: red;
+    border: darkred;
+    border-radius: 15px;
+    padding: 5px 20px;
+    color: white;
+    margin: 2px;
+}
+
+.reset:hover {
+    background-color: darkred;
+    border: red;  
+    margin: 2px;
+    cursor: pointer;
+}
