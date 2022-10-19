@@ -109,7 +109,7 @@ const Countdown = () => {
                 />
                 <br />
                 <div className="timerDisplay">
-                    {timeLeft ? formattedTime : <span>Time is up!</span>}
+                    {isActive && timeLeft == 0 ? <span>Time is up!</span> : formattedTime }
                 </div>
                 <DisplayTime 
                     timeLeft={timeLeft}
