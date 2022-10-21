@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-const Input = (props) => {
-    const [inputTime, setInputTime] = useState("");
+const InputRest = (props) => {
+    const [inputRest, setInputRest] = useState("");
 
     const onChange = (e) => {
-        setInputTime(e.target.value)
-        props.timeChanged(e.target.value)
+        setInputRest(e.target.value)
+        props.restChanged(e.target.value)
     }
 
     return (
@@ -14,7 +14,7 @@ const Input = (props) => {
                 <label>
                     <input 
                         type="number" 
-                        value={inputTime} 
+                        value={inputRest} 
                         onChange={onChange}
                         placeholder="input in seconds" 
                         className="time-input" 
@@ -25,4 +25,4 @@ const Input = (props) => {
     );
 };
 
-export default Input;
+export default InputRest;

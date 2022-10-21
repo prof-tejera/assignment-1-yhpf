@@ -2,12 +2,30 @@
     width: 20rem;
 }
 
-.timerDisplay, .buttonPanel {
+.input-text {
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+
+.p-text {
+    font-size: 16px;
+    margin-bottom: 0px;
+    
+}
+
+.timer-text {
+    font-size: 16px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+
+.timerDisplay, .roundsDisplay, .restDisplay, .buttonPanel {
     text-align: center;
     background-color: lightblue;
 }
 
-.timerDisplay {
+.timerDisplay, .roundsDisplay, .restDisplay {
     padding-top: 10px;
 }
 
@@ -22,11 +40,16 @@
     border: white;
     padding: 5px 20px;
     color: white;
-
 }
 
 .start:hover {
     background-color: darkgreen;
+    border: green;  
+    cursor: pointer;
+}
+
+.start:active {
+    background-color: grey;
     border: green;  
     cursor: pointer;
 }
@@ -46,6 +69,12 @@
     cursor: pointer;
 }
 
+.pause-resume:active {
+    background-color: grey;
+    border: orange;  
+    cursor: pointer;
+}
+
 .fastforward {
     background-color: darkviolet;
     border: purple;
@@ -60,12 +89,10 @@
     cursor: pointer;
 }
 
-.disabled-fastforward {
+.fastforward:active {
     background-color: grey;
-    border: darkgrey;
-    border-radius: 15px;
-    padding: 5px 20px;
-    color: lightgrey;
+    border: darkviolet;  
+    cursor: pointer;
 }
 
 .reset {
@@ -79,6 +106,13 @@
 
 .reset:hover {
     background-color: darkred;
+    border: red;  
+    margin: 2px;
+    cursor: pointer;
+}
+
+.reset:active {
+    background-color: grey;
     border: red;  
     margin: 2px;
     cursor: pointer;

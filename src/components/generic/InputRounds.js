@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-const Input = (props) => {
-    const [inputTime, setInputTime] = useState("");
+const InputRounds = (props) => {
+    const [inputRounds, setInputRounds] = useState("");
 
     const onChange = (e) => {
-        setInputTime(e.target.value)
-        props.timeChanged(e.target.value)
+        setInputRounds(e.target.value)
+        props.roundsChanged(e.target.value)
     }
 
     return (
@@ -14,10 +14,10 @@ const Input = (props) => {
                 <label>
                     <input 
                         type="number" 
-                        value={inputTime} 
+                        value={inputRounds} 
                         onChange={onChange}
-                        placeholder="input in seconds" 
-                        className="time-input" 
+                        placeholder="number of rounds" 
+                        className="rounds-input" 
                     />
                 </label>
             </div>
@@ -25,4 +25,4 @@ const Input = (props) => {
     );
 };
 
-export default Input;
+export default InputRounds;

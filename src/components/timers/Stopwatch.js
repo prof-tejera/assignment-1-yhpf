@@ -1,13 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
 import Panel from "../generic/Panel";
 import DisplayTime from "../generic/DisplayTime";
-import "../generic/ButtonPanel.css";
 import Button from "../generic/Button";
+import "../generic/ButtonPanel.css";
+
 
 //https://upmostly.com/tutorials/build-a-react-timer-component-using-hooks
 
 const Stopwatch = () => {
     const [time, setTime] = useState(0);
+    const [capTime, setCapTime] = useState(359900)
 
     const [isActive, setIsActive] = useState(false);
     const [isPaused, setIsPaused] = useState(true);
@@ -24,6 +26,7 @@ const Stopwatch = () => {
         return () => clearInterval(timer);
     }, [isActive, isPaused, time]);
 
+    // Buttons functionality 
     const handleStart = () => {
         setIsActive(true);
         setIsPaused(false);
@@ -33,11 +36,14 @@ const Stopwatch = () => {
         setIsPaused(!isPaused);
     };
 
-    // the ff button is disabled further down in the doc (a stop watch cant have a ff)
+    // We have to have a FF-button
+    // we hare expected to fast forward to a set cap time, our choice
+    // cap time 59 minutes and 59 seconds
     const handleFastForward = () => {
         setIsActive(false);
-        setTime(0);
+        setTime(capTime);
     };
+    // I only want to show reset button here!
 
     const handleReset = () => {
         setIsActive(false);
@@ -47,6 +53,7 @@ const Stopwatch = () => {
     // https://sabe.io/blog/javascript-convert-milliseconds-seconds-minutes-hours
 
     // can this be it's own generic component?
+    // Format display of inputed workout time
     const formatTime = time => {
         const tenth = time % 1000 / 10
         const seconds = Math.floor(time / 1000) % 60
@@ -61,6 +68,7 @@ const Stopwatch = () => {
     
     const formattedTime = formatTime(time*10);
 
+    // Buttons panel
     const StartButton = (
         <div>
             <div>
@@ -75,7 +83,8 @@ const Stopwatch = () => {
     const ActiveButtons = (
         <div className="buttons">
             <Button
-                className="disabled-fastforward" 
+                className="fastforward" 
+                onClick={handleFastForward}
                 text="Fast Forward"
             />
             <Button
@@ -92,10 +101,13 @@ const Stopwatch = () => {
     );
 
     // Move stuff to DisplayTime
+    // input time in seconds
+    // display time in minutes, seconds and tenth/hundreds
     
     return (
         <Panel>
             <div className="panel">
+                <p className="p-text">Cap time: 59 minutes and 59 seconds</p>
                 <br />
                 <div className="timerDisplay">
                     {formattedTime}

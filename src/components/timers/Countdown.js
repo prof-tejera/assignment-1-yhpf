@@ -2,14 +2,14 @@ import React, { useEffect, useState, useRef } from "react";
 import Panel from "../generic/Panel";
 import DisplayTime from "../generic/DisplayTime";
 import Input from "../generic/Input";
-import "../generic/ButtonPanel.css";
 import Button from "../generic/Button";
+import "../generic/ButtonPanel.css";
 
 // https://www.geeksforgeeks.org/create-a-stop-watch-using-reactjs/
 
 const Countdown = () => {
-   const [timeLeft, setTimeLeft] = useState(0);
-   const [originalTime, setOriginalTime] = useState(0);
+    const [timeLeft, setTimeLeft] = useState(0);
+    const [originalTime, setOriginalTime] = useState(0);
     const timeRef = useRef(timeLeft);
     timeRef.current = timeLeft;
 
@@ -30,6 +30,7 @@ const Countdown = () => {
         };
     }, [isActive, isPaused]);
 
+    // Buttons functionality 
     const handleStart = () => {
         setIsActive(true);
         setIsPaused(false);
@@ -51,6 +52,7 @@ const Countdown = () => {
 
     // https://sabe.io/blog/javascript-convert-milliseconds-seconds-minutes-hours
 
+    // Format display of inputed workout time
     const formatTime = timeLeft => {
         const tenth = timeLeft % 1000 / 10
         const seconds = Math.floor(timeLeft / 1000) % 60
@@ -65,6 +67,7 @@ const Countdown = () => {
     
     const formattedTime = formatTime(timeLeft);
 
+    // Buttons panel
     const StartButton = (
         <div>
             <div>
@@ -97,10 +100,13 @@ const Countdown = () => {
     );
 
     // Move stuff to DisplayTime
+    // input time in seconds
+    // display time in minutes, seconds and tenth/hundreds
     
     return (
         <Panel>
             <div className="panel">
+                <p className="input-text">Input time in seconds:</p>
                 <Input 
                     timeChanged={(newTime) => { 
                         setTimeLeft(newTime*1000) 
