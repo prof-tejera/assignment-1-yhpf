@@ -40,7 +40,7 @@ const Stopwatch = () => {
     // we hare expected to fast forward to a set cap time, our choice
     // cap time 59 minutes and 59 seconds
     const handleFastForward = () => {
-        setIsActive(false);
+        setIsActive(true);
         setTime(capTime);
     };
     // I only want to show reset button here!
