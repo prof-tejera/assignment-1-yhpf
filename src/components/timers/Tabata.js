@@ -180,11 +180,11 @@ const Tabata = () => {
                 </div>
                 <div className="timerDisplay">
                     <p className="timer-text">Workout time</p>
-                    {isActive && timeLeft === 0 ? <span>Time is up!</span> : formattedTime }
+                    {formattedTime}
                 </div>
                 <div className="restDisplay">
                     <p className="timer-text">Rest time</p>
-                    {isActive && restLeft === 0 ? <span>Rest is up!</span> : formattedRest}
+                    {formattedRest}
                 </div>
                 <DisplayRounds />
                 <DisplayTime 
@@ -201,3 +201,16 @@ const Tabata = () => {
 };
 
 export default Tabata;
+
+/*
+
+<div className="timerDisplay">
+                    <p className="timer-text">Workout time</p>
+                    {isActive && timeLeft === 0 ? <span>Rest</span> : formattedTime }
+                </div>
+                <div className="restDisplay">
+                    <p className="timer-text">Rest time</p>
+                    {isActive && restLeft === 0 ? <span>Work</span> : formattedRest}
+                </div>
+
+*/
