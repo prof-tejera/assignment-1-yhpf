@@ -106,6 +106,7 @@ const XY = () => {
                         setRoundsLeft(newRounds) 
                         setOriginalRounds(newRounds)
                     }}
+                    placeholder="number of rounds"
                 />
                 <p className="input-text">Time in seconds:</p>
                 <Input 
@@ -113,6 +114,7 @@ const XY = () => {
                         setTimeLeft(newTime*1000) 
                         setOriginalTime(newTime*1000)
                     }}
+                    placeholder="input in seconds"
                 />
                 <br />
                 <DisplayRounds

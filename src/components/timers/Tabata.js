@@ -114,26 +114,29 @@ const Tabata = () => {
     return (
         <Panel>
             <div className="panel">
-                <p className="input-text">Input number of rounds:</p>
+                <p className="input-text">Number of rounds:</p>
                 <Input 
                     timeChanged={(newRounds) => { 
                         setRoundsLeft(newRounds) 
                         setOriginalRounds(newRounds)
                     }}
+                    placeholder="number of rounds"
                 />
-                <p className="input-text">Input workout time in seconds:</p>
+                <p className="input-text">Workout time in seconds:</p>
                 <Input 
                     timeChanged={(newTime) => { 
                         setTimeLeft(newTime*1000) 
                         setOriginalTime(newTime*1000)
                     }}
+                    placeholder="input in seconds"
                 />
-                <p className="input-text">Input rest time in seconds:</p>
+                <p className="input-text">Rest time in seconds:</p>
                 <Input
                     timeChanged={(newRest) => { 
                         setRestLeft(newRest*1000) 
                         setOriginalRest(newRest*1000)
                     }}
+                    placeholder="input in seconds"
                 />
                 <br />
                 <DisplayRounds

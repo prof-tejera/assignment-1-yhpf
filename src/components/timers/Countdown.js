@@ -94,6 +94,7 @@ const Countdown = () => {
                         setTimeLeft(newTime*1000) 
                         setOriginalTime(newTime*1000)
                     }}
+                    placeholder="input in seconds"
                 />
                 <br />
                 <DisplayTime 

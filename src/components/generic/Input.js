@@ -4,7 +4,7 @@ import React, { useState } from "react";
 // sorry about the names used!
 // will fix the naming if I get time
 
-const Input = (props) => {
+const Input = ({props, placeholder}) => {
     const [inputTime, setInputTime] = useState("");
 
     const onChange = (e) => {
@@ -20,7 +20,7 @@ const Input = (props) => {
                         type="number" 
                         value={inputTime} 
                         onChange={onChange}
-                        placeholder="input in seconds" 
+                        placeholder={placeholder}
                         className="time-input" 
                     />
                 </label>
