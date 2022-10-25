@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 
+// This is the input for time, rest AND rounds
+// sorry about the names used!
+// will fix the naming if I get time
+
 const Input = (props) => {
     const [inputTime, setInputTime] = useState("");
 
