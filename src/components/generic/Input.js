@@ -4,12 +4,12 @@ import React, { useState } from "react";
 // sorry about the names used!
 // will fix the naming if I get time
 
-const Input = ({props, placeholder}) => {
+const Input = ({timeChanged, placeholder}) => {
     const [inputTime, setInputTime] = useState("");
 
     const onChange = (e) => {
         setInputTime(e.target.value)
-        props.timeChanged(e.target.value)
+        timeChanged(e.target.value)
     }
 
     return (
