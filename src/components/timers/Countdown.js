@@ -16,6 +16,7 @@ const Countdown = () => {
     const [isActive, setIsActive] = useState(false);
     const [isPaused, setIsPaused] = useState(true);
 
+    // Timer functionality
     useEffect(() => {
         if (isActive && isPaused === false) {
         const timer = setInterval(() => {
@@ -50,23 +51,6 @@ const Countdown = () => {
         setTimeLeft(originalTime);
     };
 
-    // https://sabe.io/blog/javascript-convert-milliseconds-seconds-minutes-hours
-
-    // Format display of inputed workout time
-    const formatTime = timeLeft => {
-        const tenth = timeLeft % 1000 / 10
-        const seconds = Math.floor(timeLeft / 1000) % 60
-        const minutes = (Math.floor((timeLeft / 1000)) - seconds)/60
-    
-        return [
-            minutes.toString().padStart(2, "0"),
-            seconds.toString().padStart(2, "0"),
-            tenth.toString().padStart(2, "0")
-        ].join(":");
-    }
-    
-    const formattedTime = formatTime(timeLeft);
-
     // Buttons panel
     const StartButton = (
         <div>
@@ -99,14 +83,12 @@ const Countdown = () => {
         </div>
     );
 
-    // Move stuff to DisplayTime
     // input time in seconds
     // display time in minutes, seconds and tenth/hundreds
-    
     return (
         <Panel>
             <div className="panel">
-                <p className="input-text">Input time in seconds:</p>
+                <p className="input-text">Time in seconds:</p>
                 <Input 
                     timeChanged={(newTime) => { 
                         setTimeLeft(newTime*1000) 
@@ -114,12 +96,10 @@ const Countdown = () => {
                     }}
                 />
                 <br />
-                <div className="timerDisplay">
-                    {isActive && timeLeft == 0 ? <span>Time is up!</span> : formattedTime }
-                </div>
                 <DisplayTime 
-                    timeLeft={timeLeft}
-                    formattedTime={formattedTime}
+                    time={timeLeft}
+                    showTimeUp={true}
+                    isActive={isActive}
                 />
                 <div className="buttonPanel">
                     <div>{isActive ? ActiveButtons : StartButton}</div>

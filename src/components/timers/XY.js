@@ -3,7 +3,6 @@ import Panel from "../generic/Panel";
 import DisplayTime from "../generic/DisplayTime";
 import DisplayRounds from "../generic/DisplayRounds";
 import Input from "../generic/Input";
-import InputRounds from "../generic/InputRounds";
 import Button from "../generic/Button";
 import "../generic/ButtonPanel.css";
 
@@ -23,6 +22,7 @@ const XY = () => {
     const roundsRef = useRef(roundsLeft);
     roundsRef.current = roundsLeft;
 
+    // Timer functionality
     useEffect(() => {
         if (isActive && isPaused === false) {
         const timer = setInterval(() => {
@@ -63,23 +63,6 @@ const XY = () => {
         setRoundsLeft(originalRounds);
     };
 
-    // https://sabe.io/blog/javascript-convert-milliseconds-seconds-minutes-hours
-
-    // Format display of inputed workout time
-    const formatTime = timeLeft => {
-        const tenth = timeLeft % 1000 / 10
-        const seconds = Math.floor(timeLeft / 1000) % 60
-        const minutes = (Math.floor((timeLeft / 1000)) - seconds)/60
-    
-        return [
-            minutes.toString().padStart(2, "0"),
-            seconds.toString().padStart(2, "0"),
-            tenth.toString().padStart(2, "0")
-        ].join(":");
-    }
-    
-    const formattedTime = formatTime(timeLeft);
-
     // Buttons panel
     const StartButton = (
         <div>
@@ -112,21 +95,19 @@ const XY = () => {
         </div>
     );
 
-    // Move stuff to DisplayTime and DisplayRounds
     // input time in seconds
     // display time in minutes, seconds and tenth/hundreds
-    
     return (
         <Panel>
             <div className="panel">
-                <p className="input-text">Input number of rounds:</p>
-                <InputRounds 
-                    roundsChanged={(newRounds) => { 
+                <p className="input-text">Number of rounds:</p>
+                <Input 
+                    timeChanged={(newRounds) => { 
                         setRoundsLeft(newRounds) 
                         setOriginalRounds(newRounds)
                     }}
                 />
-                <p className="input-text">Input time in seconds:</p>
+                <p className="input-text">Time in seconds:</p>
                 <Input 
                     timeChanged={(newTime) => { 
                         setTimeLeft(newTime*1000) 
@@ -134,19 +115,14 @@ const XY = () => {
                     }}
                 />
                 <br />
-                <div className="roundsDisplay">
-                    <p className="timer-text">Rounds</p>
-                    {isActive && timeLeft === 0 && roundsLeft === 1 ? <span>Rounds are up!</span> : roundsLeft }
-                </div>
+                <DisplayRounds
+                    timedOut={isActive && timeLeft === 0}
+                    roundsLeft={roundsLeft}
+                />
                 <div className="timerDisplay">
                     <p className="timer-text">Time</p>
-                    {isActive && timeLeft === 0 ? <span>Time is up!</span> : formattedTime }
+                    <DisplayTime time={timeLeft} />
                 </div>
-                <DisplayRounds />
-                <DisplayTime 
-                    timeLeft={timeLeft}
-                    formattedTime={formattedTime}
-                />
                 <div className="buttonPanel">
                     <div>{isActive ? ActiveButtons : StartButton}</div>
                 </div>

@@ -4,7 +4,6 @@ import DisplayTime from "../generic/DisplayTime";
 import Button from "../generic/Button";
 import "../generic/ButtonPanel.css";
 
-
 //https://upmostly.com/tutorials/build-a-react-timer-component-using-hooks
 
 const Stopwatch = () => {
@@ -14,6 +13,7 @@ const Stopwatch = () => {
     const [isActive, setIsActive] = useState(false);
     const [isPaused, setIsPaused] = useState(true);
 
+    // Timer functionality
     useEffect(() => {
         let timer = null;
         if (isActive && isPaused === false) {
@@ -36,37 +36,16 @@ const Stopwatch = () => {
         setIsPaused(!isPaused);
     };
 
-    // We have to have a FF-button
-    // we hare expected to fast forward to a set cap time, our choice
-    // cap time 59 minutes and 59 seconds
+    // FF-button with cap time 59 minutes and 59 seconds
     const handleFastForward = () => {
         setIsActive(true);
         setTime(capTime);
     };
-    // I only want to show reset button here!
 
     const handleReset = () => {
         setIsActive(false);
         setTime(0);
     };
-
-    // https://sabe.io/blog/javascript-convert-milliseconds-seconds-minutes-hours
-
-    // can this be it's own generic component?
-    // Format display of inputed workout time
-    const formatTime = time => {
-        const tenth = time % 1000 / 10
-        const seconds = Math.floor(time / 1000) % 60
-        const minutes = (Math.floor((time / 1000)) - seconds)/60
-    
-        return [
-            minutes.toString().padStart(2, "0"),
-            seconds.toString().padStart(2, "0"),
-            tenth.toString().padStart(2, "0")
-        ].join(":");
-    }
-    
-    const formattedTime = formatTime(time*10);
 
     // Buttons panel
     const StartButton = (
@@ -100,22 +79,14 @@ const Stopwatch = () => {
         </div>
     );
 
-    // Move stuff to DisplayTime
     // input time in seconds
     // display time in minutes, seconds and tenth/hundreds
-    
     return (
         <Panel>
             <div className="panel">
                 <p className="p-text">Cap time: 59 minutes and 59 seconds</p>
                 <br />
-                <div className="timerDisplay">
-                    {formattedTime}
-                </div>
-                <DisplayTime 
-                    time={time}
-                    formattedTime={formattedTime}
-                />
+                <DisplayTime time={time*10} />
                 <div className="buttonPanel">
                     <div>{isActive ? ActiveButtons : StartButton}</div>
                 </div>

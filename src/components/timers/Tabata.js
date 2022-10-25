@@ -2,10 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Panel from "../generic/Panel";
 import DisplayTime from "../generic/DisplayTime";
 import DisplayRounds from "../generic/DisplayRounds";
-import DisplayRest from "../generic/DisplayRest";
 import Input from "../generic/Input";
-import InputRounds from "../generic/InputRounds";
-import InputRest from "../generic/InputRest";
 import Button from "../generic/Button";
 import "../generic/ButtonPanel.css";
 
@@ -34,8 +31,7 @@ const Tabata = () => {
     const originalRestRef = useRef(originalRest);
     originalRestRef.current = originalRest;
 
-    // I need to restart timer time as long as rounds != 0
-    // One timer lap is workout time + rest time
+    // Timer functionality
     useEffect(() => {
         if (isActive && isPaused === false) {
         const timer = setInterval(() => {
@@ -81,38 +77,6 @@ const Tabata = () => {
         setRestLeft(originalRest);
     };
 
-    // https://sabe.io/blog/javascript-convert-milliseconds-seconds-minutes-hours
-
-    // Format display of inputed workout time
-    const formatTime = timeLeft => {
-        const tenth = timeLeft % 1000 / 10
-        const seconds = Math.floor(timeLeft / 1000) % 60
-        const minutes = (Math.floor((timeLeft / 1000)) - seconds)/60
-    
-        return [
-            minutes.toString().padStart(2, "0"),
-            seconds.toString().padStart(2, "0"),
-            tenth.toString().padStart(2, "0")
-        ].join(":");
-    }
-    
-    const formattedTime = formatTime(timeLeft);
-
-    // Format display of inputed rest time
-    const formatRest = restLeft => {
-        const tenth = restLeft % 1000 / 10
-        const seconds = Math.floor(restLeft / 1000) % 60
-        const minutes = (Math.floor((restLeft / 1000)) - seconds)/60
-    
-        return [
-            minutes.toString().padStart(2, "0"),
-            seconds.toString().padStart(2, "0"),
-            tenth.toString().padStart(2, "0")
-        ].join(":");
-    }
-    
-    const formattedRest = formatRest(restLeft);
-
     // Buttons panel
     const StartButton = (
         <div>
@@ -145,16 +109,14 @@ const Tabata = () => {
         </div>
     );
 
-    // Move stuff to DisplayTime, DisplayRounds, DisplayRest
     // input time in seconds
     // display time in minutes, seconds and tenth/hundreds
-    
     return (
         <Panel>
             <div className="panel">
                 <p className="input-text">Input number of rounds:</p>
-                <InputRounds 
-                    roundsChanged={(newRounds) => { 
+                <Input 
+                    timeChanged={(newRounds) => { 
                         setRoundsLeft(newRounds) 
                         setOriginalRounds(newRounds)
                     }}
@@ -167,31 +129,25 @@ const Tabata = () => {
                     }}
                 />
                 <p className="input-text">Input rest time in seconds:</p>
-                <InputRest 
-                    restChanged={(newRest) => { 
+                <Input
+                    timeChanged={(newRest) => { 
                         setRestLeft(newRest*1000) 
                         setOriginalRest(newRest*1000)
                     }}
                 />
                 <br />
-                <div className="roundsDisplay">
-                    <p className="timer-text">Rounds</p>
-                    {isActive && timeLeft === 0 & restLeft === 0 && roundsLeft === 1 ? <span>Rounds are up!</span> : roundsLeft }
-                </div>
+                <DisplayRounds
+                    timedOut={isActive && timeLeft === 0 && restLeft === 0}
+                    roundsLeft={roundsLeft}
+                />
                 <div className="timerDisplay">
                     <p className="timer-text">Workout time</p>
-                    {formattedTime}
+                    <DisplayTime time={timeLeft} />
                 </div>
                 <div className="restDisplay">
                     <p className="timer-text">Rest time</p>
-                    {formattedRest}
+                    <DisplayTime time={restLeft} />
                 </div>
-                <DisplayRounds />
-                <DisplayTime 
-                    timeLeft={timeLeft}
-                    formattedTime={formattedTime}
-                />
-                <DisplayRest />
                 <div className="buttonPanel">
                     <div>{isActive ? ActiveButtons : StartButton}</div>
                 </div>
@@ -201,16 +157,3 @@ const Tabata = () => {
 };
 
 export default Tabata;
-
-/*
-
-<div className="timerDisplay">
-                    <p className="timer-text">Workout time</p>
-                    {isActive && timeLeft === 0 ? <span>Rest</span> : formattedTime }
-                </div>
-                <div className="restDisplay">
-                    <p className="timer-text">Rest time</p>
-                    {isActive && restLeft === 0 ? <span>Work</span> : formattedRest}
-                </div>
-
-*/
