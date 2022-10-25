@@ -3,7 +3,7 @@ import Panel from "../generic/Panel";
 import DisplayTime from "../generic/DisplayTime";
 import Input from "../generic/Input";
 import Button from "../generic/Button";
-import "../generic/ButtonPanel.css";
+import "../generic/TimersStyle.css";
 
 // https://www.geeksforgeeks.org/create-a-stop-watch-using-reactjs/
 

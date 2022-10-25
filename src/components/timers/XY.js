@@ -4,7 +4,7 @@ import DisplayTime from "../generic/DisplayTime";
 import DisplayRounds from "../generic/DisplayRounds";
 import Input from "../generic/Input";
 import Button from "../generic/Button";
-import "../generic/ButtonPanel.css";
+import "../generic/TimersStyle.css";
 
 const XY = () => {
     const [timeLeft, setTimeLeft] = useState(0);

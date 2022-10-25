@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Panel from "../generic/Panel";
 import DisplayTime from "../generic/DisplayTime";
 import Button from "../generic/Button";
-import "../generic/ButtonPanel.css";
+import "../generic/TimersStyle.css";
 
 //https://upmostly.com/tutorials/build-a-react-timer-component-using-hooks
 
