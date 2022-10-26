@@ -5,6 +5,10 @@ import DocumentComponent from "../components/documentation/DocumentComponent";
 
 import Loading from "../components/generic/Loading";
 import Button from "../components/generic/Button";
+import DisplayRounds from "../components/generic/DisplayRounds";
+import DisplayTime from "../components/generic/DisplayTime";
+import Input from "../components/generic/Input";
+import Panel from "../components/generic/Panel";
 
 const Container = styled.div`
   display: flex;
@@ -43,19 +47,89 @@ const Documentation = () => {
           propDocs={[
             {
               prop: "className",
-              description: "CSS class of the button",
+              description: "CSS class of the button.",
               type: "string",
             },
             {
               prop: "text",
-              description: "Text to display on the button",
+              description: "Text to display on the button.",
               type: "string",
             },
             {
               prop: "onClick",
-              description: "Method to run when you click the button",
+              description: "Method to run when you click the button.",
               type: "function",
             }
+          ]}
+        />
+
+        <DocumentComponent
+          title="DisplayRounds "
+          component={<DisplayRounds />}
+          propDocs={[
+            {
+              prop: "timedOut",
+              description: "When timer is active and there is no time left on the timer.",
+              type: "boolean",
+            },
+            {
+              prop: "roundsLeft",
+              description: "Rounds left in the XY or Tabata timer.",
+              type: "number",
+            },
+          ]}
+        />
+
+        <DocumentComponent
+          title="DisplayTime "
+          component={<DisplayTime />}
+          propDocs={[
+            {
+              prop: "time",
+              description: "Time in milliseconds to display.",
+              type: "number",
+            },
+            {
+              prop: "showTimeUp",
+              description: "If true, DisplayTime will say 'Time is up!' when time is up (i.e. when the timer is 0 and isActive is true). If false, DisplayTime will say 00:00.00",
+              type: "boolean",
+              defaultValue: "false",
+            },
+            {
+              prop: "isActive",
+              description: "Indicates if the timer is active or not.",
+              type: "boolean",
+              defaultValue: "true",
+            },
+          ]}
+        />
+
+        <DocumentComponent
+          title="Input "
+          component={<Input />}
+          propDocs={[
+            {
+              prop: "timeChanged",
+              description: "Function that is called when the components input is changed.",
+              type: "function (number)",
+            },
+            {
+              prop: "placeholder",
+              description: "Text to be displayed in input field.",
+              type: "string",
+            },
+          ]}
+        />
+
+        <DocumentComponent
+          title="Panel "
+          component={<Panel />}
+          propDocs={[
+            {
+              prop: "n/a",
+              description: "Used for styling purpose.",
+              type: "??",
+            },
           ]}
         />
 
