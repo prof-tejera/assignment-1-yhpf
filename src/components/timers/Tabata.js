@@ -139,20 +139,26 @@ const Tabata = () => {
                     placeholder="input in seconds"
                 />
                 <br />
-                <DisplayRounds
-                    timedOut={isActive && timeLeft === 0 && restLeft === 0}
-                    roundsLeft={roundsLeft}
-                />
-                <div className="timerDisplay">
-                    <p className="timer-text">Workout time</p>
-                    <DisplayTime time={timeLeft} />
-                </div>
-                <div className="restDisplay">
-                    <p className="timer-text">Rest time</p>
-                    <DisplayTime time={restLeft} />
-                </div>
-                <div className="buttonPanel">
-                    <div>{isActive ? ActiveButtons : StartButton}</div>
+                <div className="timerArea">
+                    <div className="roundsDisplay">
+                        <p className="timer-text">Rounds</p>
+                        <DisplayRounds
+                            timedOut={isActive && timeLeft === 0 && restLeft === 0}
+                            roundsLeft={roundsLeft}
+                            originalRounds={originalRounds}
+                        />
+                    </div>
+                    <div className="timerDisplay">
+                        <p className="timer-text">Workout time</p>
+                        <DisplayTime time={timeLeft} />
+                    </div>
+                    <div className="restDisplay">
+                        <p className="timer-text">Rest time</p>
+                        <DisplayTime time={restLeft} />
+                    </div>
+                    <div className="buttonPanel">
+                        <div>{isActive ? ActiveButtons : StartButton}</div>
+                    </div>
                 </div>
             </div>
         </Panel>

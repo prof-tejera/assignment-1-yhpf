@@ -97,13 +97,15 @@ const Countdown = () => {
                     placeholder="input in seconds"
                 />
                 <br />
-                <DisplayTime 
-                    time={timeLeft}
-                    showTimeUp={true}
-                    isActive={isActive}
-                />
-                <div className="buttonPanel">
-                    <div>{isActive ? ActiveButtons : StartButton}</div>
+                <div className="timerArea">
+                    <DisplayTime 
+                        time={timeLeft}
+                        showTimeUp={true}
+                        isActive={isActive}
+                    />
+                    <div className="buttonPanel">
+                        <div>{isActive ? ActiveButtons : StartButton}</div>
+                    </div>
                 </div>
             </div>
         </Panel>

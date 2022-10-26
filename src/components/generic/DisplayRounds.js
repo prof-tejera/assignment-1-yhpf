@@ -1,8 +1,9 @@
-const DisplayRounds = ({timedOut, roundsLeft}) => {
+import "./TimersStyle.css";
+
+const DisplayRounds = ({timedOut, roundsLeft, originalRounds}) => {
     return (
         <div className="roundsDisplay">
-            <p className="timer-text">Rounds</p>
-            {timedOut && roundsLeft === 1 ? <span>Rounds are up!</span> : roundsLeft }
+            {timedOut && roundsLeft === 1 ? <span>Rounds are up!</span> : <span>{roundsLeft} / {originalRounds}</span>}   
         </div>
     )
 }   

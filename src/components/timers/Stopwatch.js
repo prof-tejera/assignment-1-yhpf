@@ -86,9 +86,11 @@ const Stopwatch = () => {
             <div className="panel">
                 <p className="p-text">Cap time: 59 minutes and 59 seconds</p>
                 <br />
-                <DisplayTime time={time*10} />
-                <div className="buttonPanel">
-                    <div>{isActive ? ActiveButtons : StartButton}</div>
+                <div className="timerArea">
+                    <DisplayTime time={time*10} />
+                    <div className="buttonPanel">
+                        <div>{isActive ? ActiveButtons : StartButton}</div>
+                    </div>
                 </div>
             </div>
         </Panel>

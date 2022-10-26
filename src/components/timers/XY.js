@@ -117,16 +117,22 @@ const XY = () => {
                     placeholder="input in seconds"
                 />
                 <br />
-                <DisplayRounds
-                    timedOut={isActive && timeLeft === 0}
-                    roundsLeft={roundsLeft}
-                />
-                <div className="timerDisplay">
-                    <p className="timer-text">Time</p>
-                    <DisplayTime time={timeLeft} />
-                </div>
-                <div className="buttonPanel">
-                    <div>{isActive ? ActiveButtons : StartButton}</div>
+                <div className="timerArea">
+                    <div className="roundsDisplay">
+                        <p className="timer-text">Rounds</p>
+                        <DisplayRounds
+                            timedOut={isActive && timeLeft === 0}
+                            roundsLeft={roundsLeft}
+                            originalRounds={originalRounds}
+                        />
+                    </div>
+                    <div className="timerDisplay">
+                        <p className="timer-text">Time</p>
+                        <DisplayTime time={timeLeft} />
+                    </div>
+                    <div className="buttonPanel">
+                        <div>{isActive ? ActiveButtons : StartButton}</div>
+                    </div>
                 </div>
             </div>
         </Panel>
