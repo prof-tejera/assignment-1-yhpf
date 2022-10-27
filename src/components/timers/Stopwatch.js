@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Panel from "../generic/Panel";
 import DisplayTime from "../generic/DisplayTime";
 import Button from "../generic/Button";
+import ButtonPanel from "../generic/ButtonPanel";
 import "../generic/TimersStyle.css";
 
 //https://upmostly.com/tutorials/build-a-react-timer-component-using-hooks
@@ -62,31 +63,6 @@ const Stopwatch = () => {
         </div>
     );
 
-    // https://www.w3schools.com/icons/fontawesome_icons_video.asp
-
-    const ActiveButtons = (
-        <div className="buttons">
-            <Button
-                className="fastforward fa fa-fast-forward" 
-                onClick={handleFastForward}
-                text=""
-                title="fast forward"
-            />
-            <Button
-                className="reset fa-solid fa-rotate-left" 
-                onClick={handleReset}
-                text=""
-                title="reset"
-            />
-            <Button
-                className="pause-resume" 
-                onClick={handlePauseResume}
-                text={isPaused ? <i class="fa fa-play"></i> : <i class="fa fa-pause"></i>}
-                title={isPaused ? "resume" : "pause"}
-            />
-        </div>
-    );
-
     // input time in seconds
     // display time in minutes, seconds and tenth/hundreds
     return (
@@ -97,7 +73,7 @@ const Stopwatch = () => {
                 <div className="timerArea">
                     <DisplayTime time={time*10} />
                     <div className="buttonPanel">
-                        <div>{isActive ? ActiveButtons : StartButton}</div>
+                    <div>{isActive ? <ButtonPanel handleFastForward={handleFastForward} handlePauseResume={handlePauseResume} handleReset={handleReset} isPaused={isPaused} /> : StartButton}</div>
                     </div>
                 </div>
             </div>

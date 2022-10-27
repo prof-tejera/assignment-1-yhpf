@@ -3,6 +3,7 @@ import Panel from "../generic/Panel";
 import DisplayTime from "../generic/DisplayTime";
 import Input from "../generic/Input";
 import Button from "../generic/Button";
+import ButtonPanel from "../generic/ButtonPanel";
 import "../generic/TimersStyle.css";
 
 // https://www.geeksforgeeks.org/create-a-stop-watch-using-reactjs/
@@ -64,28 +65,6 @@ const Countdown = () => {
             </div>
         </div>
     );
-    const ActiveButtons = (
-        <div className="buttons">
-            <Button
-                className="fastforward fa fa-fast-forward" 
-                onClick={handleFastForward}
-                text=""
-                title="fast forward"
-            />
-            <Button
-                className="reset fa-solid fa-rotate-left" 
-                onClick={handleReset}
-                text=""
-                title="reset"
-            />
-            <Button
-                className="pause-resume" 
-                onClick={handlePauseResume}
-                text={isPaused ? <i class="fa fa-play"></i> : <i class="fa fa-pause"></i>}
-                title={isPaused ? "resume" : "pause"}
-            />
-        </div>
-    );
 
     // input time in seconds
     // display time in minutes, seconds and tenth/hundreds
@@ -108,7 +87,7 @@ const Countdown = () => {
                         isActive={isActive}
                     />
                     <div className="buttonPanel">
-                        <div>{isActive ? ActiveButtons : StartButton}</div>
+                    <div>{isActive ? <ButtonPanel handleFastForward={handleFastForward} handlePauseResume={handlePauseResume} handleReset={handleReset} isPaused={isPaused} /> : StartButton}</div>
                     </div>
                 </div>
             </div>

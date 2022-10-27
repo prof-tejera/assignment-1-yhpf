@@ -4,6 +4,7 @@ import DisplayTime from "../generic/DisplayTime";
 import DisplayRounds from "../generic/DisplayRounds";
 import Input from "../generic/Input";
 import Button from "../generic/Button";
+import ButtonPanel from "../generic/ButtonPanel";
 import "../generic/TimersStyle.css";
 
 const Tabata = () => {
@@ -90,28 +91,6 @@ const Tabata = () => {
             </div>
         </div>
     );
-    const ActiveButtons = (
-        <div className="buttons">
-            <Button
-                className="fastforward fa fa-fast-forward" 
-                onClick={handleFastForward}
-                text=""
-                title="fast forward"
-            />
-            <Button
-                className="reset fa-solid fa-rotate-left" 
-                onClick={handleReset}
-                text=""
-                title="reset"
-            />
-            <Button
-                className="pause-resume" 
-                onClick={handlePauseResume}
-                text={isPaused ? <i class="fa fa-play"></i> : <i class="fa fa-pause"></i>}
-                title={isPaused ? "resume" : "pause"}
-            />
-        </div>
-    );
 
     // input time in seconds
     // display time in minutes, seconds and tenth/hundreds
@@ -161,7 +140,7 @@ const Tabata = () => {
                         <DisplayTime time={restLeft} />
                     </div>
                     <div className="buttonPanel">
-                        <div>{isActive ? ActiveButtons : StartButton}</div>
+                        <div>{isActive ? <ButtonPanel handleFastForward={handleFastForward} handlePauseResume={handlePauseResume} handleReset={handleReset} isPaused={isPaused} /> : StartButton}</div>
                     </div>
                 </div>
             </div>
