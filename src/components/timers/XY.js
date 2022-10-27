@@ -39,7 +39,7 @@ const XY = () => {
 
         return () => clearTimeout(timer);
         };
-    }, [isActive, isPaused]);
+    }, [isActive, isPaused, originalTime]);
 
     // Buttons functionality 
     const handleStart = () => {
