@@ -56,6 +56,7 @@ const Stopwatch = () => {
                     className="start fa fa-play" 
                     onClick={handleStart}
                     text=""
+                    title="start"
                 />
             </div>
         </div>
@@ -69,16 +70,19 @@ const Stopwatch = () => {
                 className="fastforward fa fa-fast-forward" 
                 onClick={handleFastForward}
                 text=""
+                title="fast forward"
             />
             <Button
                 className="reset fa-solid fa-rotate-left" 
                 onClick={handleReset}
                 text=""
+                title="reset"
             />
             <Button
                 className="pause-resume" 
                 onClick={handlePauseResume}
                 text={isPaused ? <i class="fa fa-play"></i> : <i class="fa fa-pause"></i>}
+                title={isPaused ? "resume" : "pause"}
             />
         </div>
     );

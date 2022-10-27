@@ -59,6 +59,11 @@ const Documentation = () => {
               prop: "onClick",
               description: "Method to run when you click the button.",
               type: "function",
+            },
+            {
+              prop: "title",
+              description: "Tooltip text to show (text to show on mouse over).",
+              type: "string",
             }
           ]}
         />
