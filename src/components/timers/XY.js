@@ -68,9 +68,10 @@ const XY = () => {
         <div>
             <div>
                 <Button 
-                    className="start" 
+                    className="start fa fa-play" 
                     onClick={handleStart}
-                    text="Start"
+                    text=""
+                    title="start"
                 />
             </div>
         </div>
@@ -78,19 +79,22 @@ const XY = () => {
     const ActiveButtons = (
         <div className="buttons">
             <Button
-                className="fastforward" 
+                className="fastforward fa fa-fast-forward" 
                 onClick={handleFastForward}
-                text="Fast Forward"
+                text=""
+                title="fast forward"
             />
             <Button
-                className="reset" 
+                className="reset fa-solid fa-rotate-left" 
                 onClick={handleReset}
-                text="Reset"
+                text=""
+                title="reset"
             />
             <Button
                 className="pause-resume" 
                 onClick={handlePauseResume}
-                text={isPaused ? "Resume" : "Pause"}
+                text={isPaused ? <i class="fa fa-play"></i> : <i class="fa fa-pause"></i>}
+                title={isPaused ? "resume" : "pause"}
             />
         </div>
     );
