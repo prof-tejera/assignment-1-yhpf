@@ -10,6 +10,7 @@ const Container = styled.div`
   padding: 20px;
   display: flex;
   justify-content: space-between;
+  width: 1000px;
 `;
 
 const Title = styled.div`
@@ -25,7 +26,9 @@ const RenderComponent = styled.div`
   align-items: center;
 `;
 
-const Documentation = styled.table``;
+const Documentation = styled.table`
+  width: 800px;
+`;
 
 const DocumentComponent = ({ title, component, propDocs }) => {
   return (

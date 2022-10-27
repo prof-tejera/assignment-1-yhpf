@@ -1,0 +1,153 @@
+.panel {
+    width: 20rem;
+}
+
+.timerArea {
+    border: solid black 1px;
+    background-color: black;
+    color: white;
+}
+
+.input-text {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 0px;
+}
+
+.p-text {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 0px;
+    
+}
+
+.timer-text {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    color: white;
+}
+
+.timerDisplay, .roundsDisplay, .restDisplay, .buttonPanel {
+    text-align: center;
+}
+
+.timerDisplay, .roundsDisplay, .restDisplay {
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.buttonPanel {
+    padding-bottom: 10px;
+}
+
+.timerDisplay {
+    font-size: 35px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #FFFFFF; /* white */
+}
+
+.roundsDisplay {
+    font-size: 30px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #FFFFFF; /* white */
+}
+
+/* ===== BUTTON STYLING ===== */
+
+/* Start */
+.start {
+    background-color: green;
+    border: solid 2px darkgreen; 
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    color: white;
+    font-size: 20px;
+}
+
+.start:hover {
+    background-color: darkgreen;
+    border: solid 2px white;  
+    cursor: pointer;
+}
+
+.start:active {
+    background-color: grey;
+    border: solid 2px darkgreen; 
+    cursor: pointer;
+}
+
+/* Pause/Resume */
+.pause-resume {
+    background-color: orange;
+    border: solid 2px darkorange;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    color: white;
+    font-size: 20px;
+}
+
+.pause-resume:hover {
+    background-color: darkorange;
+    border: solid 2px white;  
+    cursor: pointer;
+}
+
+.pause-resume:active {
+    background-color: grey;
+    border: solid 2px darkorange;  
+    cursor: pointer;
+}
+
+/* FastForward */
+.fastforward {
+    background-color: darkviolet;
+    border: solid 2px purple;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    color: white;
+    font-size: 20px;
+}
+
+.fastforward:hover {
+    background-color: purple;
+    border: solid 2px white;  
+    cursor: pointer;
+}
+
+.fastforward:active {
+    background-color: grey;
+    border: solid 2px purple;  
+    cursor: pointer;
+}
+
+/* Reset */
+.reset {
+    background-color: red;
+    border: solid 2px darkred;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    color: white;
+    font-size: 20px;
+    margin: 2px;
+}
+
+.reset:hover {
+    background-color: darkred;
+    border: solid 2px white;  
+    margin: 2px;
+    cursor: pointer;
+}
+
+.reset:active {
+    background-color: grey;
+    border: solid 2px darkred;  
+    margin: 2px;
+    cursor: pointer;
+}
