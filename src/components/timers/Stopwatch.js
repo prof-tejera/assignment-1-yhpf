@@ -39,6 +39,7 @@ const Stopwatch = () => {
     // FF-button with cap time 59 minutes and 59 seconds
     const handleFastForward = () => {
         setIsActive(true);
+        setIsPaused(true);
         setTime(capTime);
     };
 
