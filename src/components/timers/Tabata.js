@@ -51,7 +51,7 @@ const Tabata = () => {
 
         return () => clearTimeout(timer);
         };
-    }, [isActive, isPaused]);
+    }, [isActive, isPaused, originalTime, originalRest]);
 
     // Buttons functionality 
     const handleStart = () => {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import Panel from "../generic/Panel";
 import DisplayTime from "../generic/DisplayTime";
 import Button from "../generic/Button";
@@ -8,7 +8,7 @@ import "../generic/TimersStyle.css";
 
 const Stopwatch = () => {
     const [time, setTime] = useState(0);
-    const [capTime, setCapTime] = useState(359900)
+    const capTime = 359900;
 
     const [isActive, setIsActive] = useState(false);
     const [isPaused, setIsPaused] = useState(true);

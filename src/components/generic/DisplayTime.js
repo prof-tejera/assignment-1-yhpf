@@ -18,7 +18,7 @@ const DisplayTime = ({ time, showTimeUp=false, isActive=true }) => {
 
     return (
         <div className="timerDisplay">
-            {showTimeUp && isActive && time == 0 ? <span>Time is up!</span> : timeForDisplay }
+            {showTimeUp && isActive && time === 0 ? <span>Time is up!</span> : timeForDisplay }
         </div>
     )
 }   
