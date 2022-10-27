@@ -4,7 +4,8 @@ import styled from "styled-components";
 import DocumentComponent from "../components/documentation/DocumentComponent";
 
 import Loading from "../components/generic/Loading";
-import Button from "../components/generic/Button";
+import Button from "../components/generic/ButtonPanel";
+import ButtonPanel from "../components/generic/Button";
 import DisplayRounds from "../components/generic/DisplayRounds";
 import DisplayTime from "../components/generic/DisplayTime";
 import Input from "../components/generic/Input";
@@ -64,6 +65,33 @@ const Documentation = () => {
               prop: "title",
               description: "Tooltip text to show (text to show on mouse over).",
               type: "string",
+            }
+          ]}
+        />
+
+        <DocumentComponent
+          title="ButtonPanel "
+          component={<ButtonPanel />}
+          propDocs={[
+            {
+              prop: "handleFastForward",
+              description: "Handle funcitonality when clicking Fast Forward button.",
+              type: "function",
+            },
+            {
+              prop: "handleReset",
+              description: "Handle funcitonality when clicking Reset button.",
+              type: "function",
+            },
+            {
+              prop: "handlePauseResume",
+              description: "Handle funcitonality when clicking Pause / Resume button.",
+              type: "function",
+            },
+            {
+              prop: "isPaused",
+              description: "Indicates if the timer is paused or not.",
+              type: "boolean",
             }
           ]}
         />
@@ -132,8 +160,8 @@ const Documentation = () => {
           propDocs={[
             {
               prop: "n/a",
-              description: "Used for styling purpose.",
-              type: "??",
+              description: "For future styling purpose.",
+              type: "",
             },
           ]}
         />
